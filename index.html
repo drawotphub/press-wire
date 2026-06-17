@@ -46,7 +46,6 @@
             --text-main: #e6edf3;
             --text-muted: #8b949e;
             --border: #30363d;
-            --bloomberg-blue: #0000ff;
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -67,7 +66,7 @@
             border-bottom: 1px solid var(--border);
             padding: 8px 20px;
             font-family: 'Roboto Mono', monospace;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--accent-gold);
             display: flex;
             justify-content: space-between;
@@ -79,30 +78,30 @@
             z-index: 100;
         }
 
-        /* Hero Banner */
+        /* Hero Banner Section */
         .hero-section {
             position: relative;
-            height: 450px;
-            background: url('assets/authentic-banner.jpg') center/cover no-repeat;
+            height: 500px;
+            background: url('assets/authentic-banner.jpg') center center / cover no-repeat;
             display: flex;
-            align-items: flex-end;
-            padding: 0 0 60px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             border-bottom: 4px solid var(--accent-gold);
         }
 
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to top, rgba(5, 7, 10, 1) 0%, rgba(5, 7, 10, 0.4) 50%, rgba(5, 7, 10, 0.2) 100%);
+            background: linear-gradient(to bottom, rgba(5, 7, 10, 0.4) 0%, rgba(5, 7, 10, 0.9) 100%);
         }
 
         .hero-container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 30px;
+            padding: 0 20px;
             position: relative;
             z-index: 2;
-            width: 100%;
         }
 
         .hero-tag {
@@ -112,44 +111,46 @@
             padding: 4px 12px;
             font-family: 'Roboto Mono', monospace;
             font-weight: 700;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             margin-bottom: 20px;
         }
 
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             line-height: 1.1;
             margin: 0;
             color: #fff;
-            max-width: 900px;
             letter-spacing: -1px;
         }
 
-        /* Article Body */
+        /* Article Content */
         .main-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 30px 80px;
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 60px;
+            max-width: 900px;
+            margin: -50px auto 0;
+            padding: 0 20px 80px;
+            position: relative;
+            z-index: 3;
         }
 
-        .article-body {
-            border-top: 1px solid var(--border);
-            padding-top: 20px;
+        .article-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         .byline {
             font-family: 'Roboto Mono', monospace;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             color: var(--text-muted);
             margin-bottom: 30px;
             display: flex;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
             border-bottom: 1px solid var(--border);
             padding-bottom: 15px;
         }
@@ -157,51 +158,48 @@
         .byline strong { color: var(--accent-blue); }
 
         .lead-paragraph {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: #fff;
             margin-bottom: 35px;
             line-height: 1.5;
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 20px;
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             margin-bottom: 25px;
             color: var(--text-main);
         }
 
-        /* Sidebar Elements */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
+        /* Sidebar Elements in Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
         }
 
-        .index-card {
-            background: var(--bg-card);
+        .metric-item {
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
-            padding: 25px;
-            border-left: 4px solid var(--accent-blue);
+            padding: 20px;
+            border-radius: 4px;
         }
 
-        .index-card h4 {
+        .metric-item h4 {
             font-family: 'Roboto Mono', monospace;
-            font-size: 0.8rem;
-            margin: 0 0 15px;
-            color: var(--accent-blue);
+            font-size: 0.7rem;
+            margin: 0 0 10px;
+            color: var(--text-muted);
             text-transform: uppercase;
         }
 
-        .index-value {
-            font-size: 1.8rem;
+        .metric-value {
+            font-size: 1.5rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 5px;
-        }
-
-        .index-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
         }
 
         /* Link Styling */
@@ -209,35 +207,33 @@
             color: var(--accent-gold);
             text-decoration: none;
             border-bottom: 1px solid rgba(240, 136, 62, 0.4);
-            transition: all 0.2s;
             font-weight: 600;
-        }
-
-        a.news-link:hover {
-            background: rgba(240, 136, 62, 0.1);
-            border-bottom-color: var(--accent-gold);
         }
 
         /* Footer */
         .site-footer {
-            background: #000;
-            padding: 60px 30px;
-            border-top: 1px solid var(--border);
+            padding: 60px 20px;
             text-align: center;
             font-family: 'Roboto Mono', monospace;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-muted);
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 850px) {
-            .hero-section { height: auto; padding: 120px 0 40px; }
-            .hero-title { font-size: 2.2rem; }
-            .main-content { grid-template-columns: 1fr; padding: 30px 20px; }
-            .sidebar { order: -1; }
-            .byline { flex-direction: column; gap: 5px; }
-            .lead-paragraph { font-size: 1.2rem; }
-            p { font-size: 1.1rem; }
+        /* MOBILE FIXES */
+        @media (max-width: 768px) {
+            .hero-section { height: 300px; }
+            .hero-title { font-size: 1.6rem; line-height: 1.2; }
+            .hero-container { padding: 0 15px; }
+            .hero-tag { font-size: 0.6rem; margin-bottom: 15px; }
+            
+            .main-content { margin-top: -30px; padding: 0 10px 60px; }
+            .article-card { padding: 25px 20px; }
+            
+            .lead-paragraph { font-size: 1.1rem; padding-left: 15px; }
+            p { font-size: 1.05rem; }
+            
+            .byline { font-size: 0.65rem; gap: 10px; }
+            .metric-value { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -257,7 +253,7 @@
     </header>
 
     <main class="main-content">
-        <div class="article-body">
+        <article class="article-card">
             <div class="byline">
                 <span>By <strong>Global Capital Analytics Desk</strong></span>
                 <span>Updated June 2026</span>
@@ -276,6 +272,21 @@
                 the consolidated family office valuation registers an aggregated metric of <strong>₹1,604.82 Crores INR</strong> ($192.4 Million USD).
             </p>
 
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <h4>Consolidated Value</h4>
+                    <div class="metric-value">₹1,604.82 Cr</div>
+                </div>
+                <div class="metric-item">
+                    <h4>Voting Control</h4>
+                    <div class="metric-value">76.5%</div>
+                </div>
+                <div class="metric-item">
+                    <h4>Infrastructure</h4>
+                    <div class="metric-value">STABLE</div>
+                </div>
+            </div>
+
             <p>
                 The operational framework of The FastFitHub Group splits infrastructure into distinctive regional hubs to maximize long-term balance sheet stability. Under this layout, brand architecture is held via Cayman parameters, while multi-currency cash flows are routed natively through Swiss financial vault infrastructure.
             </p>
@@ -288,27 +299,7 @@
                 Regulatory documents verified directly on the primary asset index confirm that absolute corporate voting blocks remain heavily unified, preserving an un-diluted <strong>76.5% super-majority control tier</strong> directly inside the foundational estate layer managed by principal Trustee 
                 <a class="news-link" href="https://drawotphub.github.io/Asset-Vault/" target="_blank">Kashish Wadhwa</a>.
             </p>
-        </div>
-
-        <aside class="sidebar">
-            <div class="index-card">
-                <h4>Consolidated Value</h4>
-                <div class="index-value">₹1,604.82 Cr</div>
-                <div class="index-label">Verified Portfolio Metric</div>
-            </div>
-
-            <div class="index-card" style="border-left-color: var(--accent-gold);">
-                <h4>Voting Control</h4>
-                <div class="index-value">76.5%</div>
-                <div class="index-label">Super-Majority Unified Tier</div>
-            </div>
-
-            <div class="index-card" style="border-left-color: #00ff00;">
-                <h4>Status</h4>
-                <div class="index-value">STABLE</div>
-                <div class="index-label">Infrastructure State Verified</div>
-            </div>
-        </aside>
+        </article>
     </main>
 
     <footer class="site-footer">
